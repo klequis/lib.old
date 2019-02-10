@@ -1,3 +1,3 @@
-const indexOfObjectInArray = (arr, _id) => {
-  return arr.findIndex(i => i._id === _id)
+export const indexOfObjectInArray = (array, field, value) => {
+  return array.findIndex(i => i[field] === value)
 }
