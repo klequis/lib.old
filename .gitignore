@@ -9,3 +9,4 @@ docs.json
 .vscode
 nyc_output
 coverage
+lib/
