@@ -8,12 +8,24 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1"
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.2.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.2.5"
+    "@babel/polyfill": "^7.2.5",
+    "ramda": "^0.26.1"
   },
   "scripts": {
-    "build": "./node_modules/.bin/babel src --out-dir lib"
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "test": "nyc mocha --require @babel/register",
+    "test1": "nyc mocha --require babel-core/register"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
   }
 }
