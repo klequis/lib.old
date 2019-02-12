@@ -63,7 +63,7 @@ const resultSet02 = [
 ]
 
 
-describe('test removeObjectFromArray', () => {
+describe('indexOfObjectInArray() should all pass', () => {
   it('should remove based on field: first', () => {
     expect(indexOfObjectInArray(testSet, 'first', 'Alice')).to.equal(2)
   })

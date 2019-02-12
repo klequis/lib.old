@@ -7,6 +7,6 @@ dist
 docs.json
 .idea
 .vscode
-nyc_output
+.nyc_output
 coverage
 lib/

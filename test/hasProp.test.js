@@ -50,13 +50,10 @@ const tests = [
   }
 ]
 
-console.log(hasProp('firstName', person));
-
-
-describe('Array', () => {
+describe('hasProp() should all pass', () => {
   tests.forEach((sample) => {
     it(sample.description, () => {
-      assert.equal(hasProp(sample.input.prop, sample.input.object), sample.result);
-    });
-  });
-});
+      assert.equal(hasProp(sample.input.prop, sample.input.object), sample.result)
+    })
+  })
+})

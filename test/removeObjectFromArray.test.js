@@ -63,7 +63,7 @@ const resultSet02 = [
 ]
 
 
-describe('test removeObjectFromArray', () => {
+describe('removeObjectFromArray() should all pass', () => {
   it('should remove based on field: first', () => {
     expect(removeObjectFromArray(testSet, 'first', 'Alice')).to.deep.equal(resultSet01)
   })
@@ -71,25 +71,3 @@ describe('test removeObjectFromArray', () => {
     expect(removeObjectFromArray(testSet, 'id', 103)).to.deep.equal(resultSet02)
   })
 })
-
-// describe.skip('Array', () => {
-//   tests.forEach((sample) => {
-//     it(sample.description, () => {
-//       assert.equal(
-//         removeObjectFromArray(sample.input.array, sample.input.field, sample.input.value), sample.result
-//       )
-//     })
-//   })
-// })
-
-// describe('Array', () => {
-//   shouldThrow.forEach((sample) => {
-//     it(sample.description, () => {
-//       // assert.equal(scaleFontSize(sample.input.size, sample.input.percent))
-//       expect(
-//         () => scaleFontSize(sample.input.size, sample.input.percent)
-//       ).to.throw()
-//     })
-//   })
-// })
-
