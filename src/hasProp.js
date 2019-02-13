@@ -3,6 +3,8 @@ import { path } from 'ramda'
 /**
  * @name hasProp
  *
+ * @function
+ *
  * @description
  * See if an object contains a prop.
  *
@@ -15,10 +17,10 @@ import { path } from 'ramda'
  * // or deep
  * hasProp('location.city', person)
  * // => true
- * @param {String} prop
- * @param {Object} obj
+ * @param {string} prop - the name of a prop
+ * @param {Object} obj - the object to look in
  *
- * @returns {true/false}
+ * @returns {true|false}
  *
  */
 

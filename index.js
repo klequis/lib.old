@@ -1,6 +1,7 @@
 module.exports = {
-
+  emailParts: require('./src/emailParts'),
   hasProp: require('./src/hasProp'),
   removeObjectFromArray: require('./src/removeObjectFromArray'),
-  test: require('./src/test/index.js'),
+  scaleFontSize: require('./src/scaleFontSize'),
+  updateObjectInArray: require('./src/updateObjectInArray')
 }
