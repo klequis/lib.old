@@ -15,11 +15,17 @@
  *
  * @returns {Object} - { name: String, domain: String }
  */
-const emailParts = (email) => {
-  const idx = email.lastIndexOf('@')
-  const name = email.slice(0, idx)
-  const domain = email.slice(idx+1, email.length)
-  return { name, domain }
+export const emailParts = (email) => {
+  console.log('**** emailParts')
+  try {
+    const idx = email.lastIndexOf('@')
+    const name = email.slice(0, idx)
+    const domain = email.slice(idx+1, email.length)
+    return { name, domain }
+  }
+  catch (e) {
+    console.log('Error (emailParts)', e)
+  }
 }
 
 // @param {string} email - an email address
