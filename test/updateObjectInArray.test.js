@@ -1,4 +1,3 @@
-import * as assert from 'assert'
 import { updateObjectInArray } from '../src/updateObjectInArray'
 
 const expect = require('chai').expect
@@ -91,7 +90,7 @@ const tests = [
   },
 ]
 
-describe('updateObjectInArray() should all pass', () => {
+describe('updateObjectInArray() - success cases', () => {
   tests.forEach(test => {
     it(test.description, () => {
       expect(
@@ -101,15 +100,10 @@ describe('updateObjectInArray() should all pass', () => {
   })
 })
 
-// describe.skip('updateObjectInArray() errors', () => {
-//   it('too few arguments', () => {
-//     expect(
-//       () => updateObjectInArray([], 'id', 101)
-//     ).to.throw(Error, /4 arguments required/)
-//   })
-//   it('incorrect parameter(s)', () => {
-//     expect(
-//       () => updateObjectInArray('wrong', 'id', 101, { name: 'Joe' })
-//     ).to.throw(Error, /Incorrect parameter(s). Expected (array, string, any, object)/)
-//   })
-// })
+describe('updateObjectInArray()- fail cases', () => {
+  it('missing parameters - should throw', () => {
+    expect(
+      () => updateObjectInArray(baseData, test.idField, { name: 'Jin' })
+    ).to.throw()
+  })
+})

@@ -70,4 +70,11 @@ describe('removeObjectFromArray() should all pass', () => {
   it('should remove based on field: id', () => {
     expect(removeObjectFromArray(testSet, 'id', 103)).to.deep.equal(resultSet02)
   })
+  it('should return false because value not found', () => {
+    expect(removeObjectFromArray(testSet, 'id', 200)).to.be.false
+  })
+  it('should return false because field not found', () => {
+    expect(removeObjectFromArray(testSet, 'zzz', 101)).to.be.false
+  })
 })
+

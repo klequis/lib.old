@@ -1,16 +1,20 @@
 /**
  * @name scalFontSize
  *
+ * @function
+ *
  * @description
- * Takes a string that is fontSize with unit of 'rem' or 'em' and a multiplier and
- * returns a new string with a new fontSize
+ * Takes a fontSize with unit of 'rem' or 'em' and a multiplier and returns a new string with a new fontSize
+ *
+ * @param {String} size - the fontSize with unit - '15rem'
+ * @param {Number} percentChange - number > 1
+ *
+ * @returns
+ * New fontSize as string
  *
  * @example
  * scaleFontSize('2rem', 10)
  * // => '2.2rem'
- *
- * @param {String} size - the fontSize with unit - '15rem'
- * @param {Number} percentChange - number > 1
  *
  */
 

@@ -7,6 +7,11 @@ import { path } from 'ramda'
  *
  * @description
  * See if an object contains a prop.
+  *
+ * @param {string} prop - the name of a prop
+ * @param {Object} obj - the object to look in
+ *
+ * @returns {true|false}
  *
  * @example
  * const person = { name: 'Joe', location { city: 'San Jose', state: 'CA' }}
@@ -17,10 +22,6 @@ import { path } from 'ramda'
  * // or deep
  * hasProp('location.city', person)
  * // => true
- * @param {string} prop - the name of a prop
- * @param {Object} obj - the object to look in
- *
- * @returns {true|false}
  *
  */
 
@@ -29,5 +30,3 @@ export const hasProp = (prop, obj) => {
     ? false
     : true
 }
-
-// export default hasProp

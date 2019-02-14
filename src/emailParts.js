@@ -8,15 +8,16 @@
  *
  * @param {string} email - an email address
  *
+ * @returns {Object} - { name: String, domain: String }
  *
  * @example
  * emailParts('john.smith@gmail.com')
+ *
  * // => { name: 'john.smith', domain: 'gmail.com'}
  *
- * @returns {Object} - { name: String, domain: String }
  */
+
 export const emailParts = (email) => {
-  console.log('**** emailParts')
   try {
     const idx = email.lastIndexOf('@')
     const name = email.slice(0, idx)
@@ -24,8 +25,7 @@ export const emailParts = (email) => {
     return { name, domain }
   }
   catch (e) {
+    /* istanbul ignore next */
     console.log('Error (emailParts)', e)
   }
 }
-
-// @param {string} email - an email address

@@ -28,7 +28,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#emailParts">emailParts</a></li><li><a href="global.html#hasProp">hasProp</a></li><li><a href="global.html#scalFontSize">scalFontSize</a></li><li><a href="global.html#updateObjectInArray">updateObjectInArray</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#emailParts">emailParts</a></li><li><a href="global.html#hasProp">hasProp</a></li><li><a href="global.html#removeObjectFromArray">removeObjectFromArray</a></li><li><a href="global.html#scalFontSize">scalFontSize</a></li><li><a href="global.html#updateObjectInArray">updateObjectInArray</a></li></ul>
 </nav>
 
 <div id="main">
@@ -114,80 +114,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="scalFontSize"><span class="type-signature"></span>scalFontSize<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scaleFontSize.js.html">scaleFontSize.js</a>, <a href="scaleFontSize.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Takes a string that is fontSize with unit of 'rem' or 'em' and a multiplier and
-returns a new string with a new fontSize</p>
-</div>
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>scaleFontSize('2rem', 10)
-// => '2.2rem'</code></pre>
-
-
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -263,6 +189,7 @@ returns a new string with a new fontSize</p>
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>emailParts('john.smith@gmail.com')
+
 // => { name: 'john.smith', domain: 'gmail.com'}</code></pre>
 
 
@@ -549,7 +476,7 @@ hasProp('location.city', person)
 
     
 
-    <h4 class="name" id="updateObjectInArray"><span class="type-signature"></span>updateObjectInArray<span class="signature">(array, field, value, newObject)</span><span class="type-signature"> &rarr; {Array|number}</span></h4>
+    <h4 class="name" id="removeObjectFromArray"><span class="type-signature"></span>removeObjectFromArray<span class="signature">(array, field, value)</span><span class="type-signature"> &rarr; {Array|number}</span></h4>
 
     
 
@@ -561,7 +488,7 @@ hasProp('location.city', person)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="updateObjectInArray.js.html">updateObjectInArray.js</a>, <a href="updateObjectInArray.js.html#line34">line 34</a>
+        <a href="removeObjectFromArray.js.html">removeObjectFromArray.js</a>, <a href="removeObjectFromArray.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -599,6 +526,414 @@ hasProp('location.city', person)
 
 
 
+
+<div class="description">
+    <p>Finds the first object in the array that matches the field/value pair passed in and removes it</p>
+<p>If the array contains more than one object with the matching field/value pair, only the first object is removed.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const arr = [{ name: 'joe', age: 20 }, { name: 'jill', age: 21 }]
+
+removeObjectFromArray(arr, 'age', 21)
+
+// => [{ name: 'joe', age: 20 }]</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>an array of objects</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>field</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>name of field/property evaluage</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>value of the field/property evaluate</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    <p>If a match for the field/value pair is found, returns a new array with the specified object removed</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>If a match for field/value is not found, returns <code>false</code>.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="scalFontSize"><span class="type-signature"></span>scalFontSize<span class="signature">(size, percentChange)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scaleFontSize.js.html">scaleFontSize.js</a>, <a href="scaleFontSize.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Takes a fontSize with unit of 'rem' or 'em' and a multiplier and returns a new string with a new fontSize</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>scaleFontSize('2rem', 10)
+// => '2.2rem'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>size</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the fontSize with unit - '15rem'</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>percentChange</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>number &gt; 1</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>New fontSize as string</p>
+</div>
+
+
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="updateObjectInArray"><span class="type-signature"></span>updateObjectInArray<span class="signature">(array, field, value, newObject)</span><span class="type-signature"> &rarr; {Array|number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="updateObjectInArray.js.html">updateObjectInArray.js</a>, <a href="updateObjectInArray.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Finds the first object in the array that matches the field/value pair passed in and updates the object with properties contained in newObject</p>
+<p>If the array contains more than one object with the matching field/value pair, only the first object found is updated.</p>
+</div>
 
 
 
@@ -773,8 +1108,7 @@ updateObjectInArray(arr, 'name', 'joe', { name: 'joseph' })
     
         <li>
 <div class="param-desc">
-    <p>If a match for field/value is not found, returns -1</p>
-<p>If the array contains 2 objects with the same matching field/value pair, the first object found will be updated. Best used on unique fields.</p>
+    <p>If a match for field/value is not found, returns <code>false</code>.</p>
 </div>
 
 
@@ -814,7 +1148,7 @@ updateObjectInArray(arr, 'name', 'joe', { name: 'joseph' })
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Feb 12 2019 21:23:02 GMT-0800 (Pacific Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Feb 14 2019 10:13:51 GMT-0800 (Pacific Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

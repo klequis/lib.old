@@ -1,8 +1,5 @@
 import { mergeRight, remove, insert } from 'ramda'
-
-const isUndefined = (vals) => {
-  vals.every(val => val === undefined)
-}
+import { isUndefined } from './util'
 
 const incorrectParamsError = new Error(
   'Incorrect parameter(s). Expected (array, string, any, object)'
@@ -10,6 +7,12 @@ const incorrectParamsError = new Error(
 
 /**
  *
+ * @description
+ * Finds the first object in the array that matches the field/value pair passed in and updates the object with properties contained in newObject
+ *
+ * If the array contains more than one object with the matching field/value pair, only the first object found is updated.
+ *
+ * @function
  *
  * @param { Array } array - an array of objects
  * @param { string } field - name of the object property used for matching
@@ -20,9 +23,7 @@ const incorrectParamsError = new Error(
  * If a match for field/value is found, returns and a new array containg the updated object.
  *
  * @returns { number }
- * If a match for field/value is not found, returns -1
- *
- * If the array contains 2 objects with the same matching field/value pair, the first object found will be updated. Best used on unique fields.
+ * If a match for field/value is not found, returns <code>false</code>.
  *
  * @example
  * const arr = [{ name: 'joe', age: 20 }, { name: 'jill', age: 21 }]
@@ -30,34 +31,25 @@ const incorrectParamsError = new Error(
  * updateObjectInArray(arr, 'name', 'joe', { name: 'joseph' })
  *
  * // => [{ name: 'joseph', age: 20 }, { name: 'jill', age: 21 }]
+ *
  */
 export function updateObjectInArray (array, field, value, newObject) {
-  console.log('arguments.length', arguments.length)
+  try {
+    if (isUndefined([array, field, value, newObject])) {
+      throw incorrectParamsError
+    }
+    const idx = array.findIndex(o => o[field] === value)
 
-  if (isUndefined([array, field, value, newObject])) {
-    throw incorrectParamsError
+    if (idx === -1) {
+      return false
+    }
+    const origObj = array[idx]
+    const updatedObj = mergeRight(origObj, newObject)
+    const arrayWithout = remove(idx, 1, array)
+    return insert(idx, updatedObj, arrayWithout)
   }
-
-  // if (!Array.isArray(array)) {
-  //   throw incorrectParamsError
-  // }
-  // if (!typeof field === 'string') {
-  //   throw incorrectParamsError
-  // }
-
-  if (arguments.length < 4) {
-    throw new Error(
-      `4 arguments required, but only ${arguments.length} present`
-    )
+  catch (e) {
+    /* istanbul ignore next */
+    console.log('Error (updateObjectInArray)', e);
   }
-  const idx = array.findIndex(o => o[field] === value)
-  // console.log('**** idx', idx)
-
-  if (idx === -1) {
-    return idx
-  }
-  const origObj = array[idx]
-  const updatedObj = mergeRight(origObj, newObject)
-  const arrayWithout = remove(idx, 1, array)
-  return insert(idx, updatedObj, arrayWithout)
 }

@@ -1,4 +1,3 @@
-import * as assert from 'assert'
 import { emailParts } from '../src/emailParts'
 
 const expect = require('chai').expect
