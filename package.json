@@ -1,6 +1,6 @@
 {
   "name": "@klequis/lib",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Library of commonly used functions",
   "main": "index.js",
   "author": "klequis",
