@@ -1,4 +1,4 @@
-import { path } from 'ramda'
+import { path, isNil } from "ramda";
 
 /**
  * @name hasProp
@@ -24,9 +24,9 @@ import { path } from 'ramda'
  * // => true
  *
  */
-
 export const hasProp = (prop, obj) => {
-  return path(prop.split('.'), obj) === undefined
-    ? false
-    : true
+  if (isNil(obj)) {
+    return false
+  }
+  return path(prop.split('.'), obj) === undefined ? false : true
 }

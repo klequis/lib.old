@@ -47,6 +47,14 @@ const tests = [
     },
     result: false,
     description: 'should return true',
+  },
+  {
+    input: {
+      prop: 'anything',
+      object: {},
+    },
+    result: false,
+    description: 'blank object should return false',
   }
 ]
 
