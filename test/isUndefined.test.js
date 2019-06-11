@@ -36,7 +36,7 @@ const updateObj01 = {
 const arr4 = [baseData, 'first', 'Jane', updateObj01]
 
 
-describe('isUndefined()', () => {
+describe.skip('isUndefined()', () => {
   it('arr1 - should return false', () => {
     expect(
       isUndefined(arr1)

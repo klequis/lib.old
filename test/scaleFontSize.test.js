@@ -49,7 +49,7 @@ const shouldThrow = [
   },
 ]
 
-describe('scaleFontSize() should all pass', () => {
+describe.skip('scaleFontSize() should all pass', () => {
   tests.forEach((sample) => {
     it(sample.description, () => {
       assert.equal(scaleFontSize(sample.input.size, sample.input.percent), sample.result)
@@ -57,7 +57,7 @@ describe('scaleFontSize() should all pass', () => {
   })
 })
 
-describe('scaleFontSize() should all throw', () => {
+describe.skip('scaleFontSize() should all throw', () => {
   shouldThrow.forEach((sample) => {
     it(sample.description, () => {
       // assert.equal(scaleFontSize(sample.input.size, sample.input.percent))
